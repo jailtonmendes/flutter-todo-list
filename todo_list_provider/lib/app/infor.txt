@@ -1,0 +1,9 @@
+code = infor de cor da aplicação, utilitários, componentes genérios
+
+models = classes de modelos
+
+modules = modulos dos sistemas
+
+repositories = repositórios, classes de comunicação com o banco de dados
+
+services = camada de regra de negócio, tudo passa pelo service antes de chegar no banco de dados
