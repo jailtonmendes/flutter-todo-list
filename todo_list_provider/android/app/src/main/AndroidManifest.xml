@@ -2,9 +2,9 @@
     package="br.dev.jailtonmendes.todo_list_provider">
    <application
         android:label="todo_list_provider"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:name="androidx.multidex.MultiDexApplication">
         <activity
             android:name=".MainActivity"
             android:exported="true"
