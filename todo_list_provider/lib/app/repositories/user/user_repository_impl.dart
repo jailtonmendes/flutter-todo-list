@@ -122,7 +122,9 @@ class UserRepositoryImpl implements UserRepository {
       print(e);
       print(s);
       if (e.code == 'account-exists-width-different-credential') {
-        throw AuthException(message: ''' 
+        throw AuthException(
+            message:
+                ''' 
           Login inválido você se registrou no TodoList com os seguintes provedores:
           ${loginMethods?.join(',')}
         ''');
@@ -134,8 +136,21 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<void> googleLogout() async {
+  Future<void> logout() async {
     await GoogleSignIn().signOut();
     _firebaseAuth.signOut();
+  }
+
+  @override
+  Future<void> updateDisplayName(String name) async {
+    // recuperando usuário do firebase
+    final user = _firebaseAuth.currentUser;
+
+    if (user != null) {
+      // Alterando o usuário
+      await user.updateDisplayName(name);
+      // Avisando a estrutura que foi alterado o nome
+      user.reload();
+    }
   }
 }
